@@ -52,11 +52,11 @@
             <div class="container">
                 <div class="hero-content">
                     <h1 id="hero-title" class="hero-title">
-                        Learn New Sports, Get Active, Pick Up New Skills
+                        Master Volleyball, Get Active, Build Your Skills
                     </h1>
                     <p class="hero-subtitle">
-                        Your interactive and amazing guide to discovering the world of sports. 
-                        Start your journey with confidence today!
+                        Your ultimate guide to learning volleyball from beginner to pro. 
+                        Start your volleyball journey with confidence today!
                     </p>
                     <div class="hero-cta">
                         <a href="#sports" class="btn btn-primary">Explore Sports</a>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <i class="fas fa-running hero-icon" aria-hidden="true"></i>
+                    <i class="fas fa-volleyball-ball hero-icon" aria-hidden="true"></i>
                 </div>
             </div>
         </section>
@@ -72,10 +72,10 @@
         <!-- Why Choose Us Section -->
         <section id="why-choose-us" class="section section-gray" aria-labelledby="why-title">
             <div class="container">
-                <h2 id="why-title" class="section-title">Why Dynamite Sports Learner?</h2>
+                <h2 id="why-title" class="section-title">Why Learn Volleyball With Us?</h2>
                 <p class="section-subtitle">
-                    Many youths are interested in learning new sports but feel unsure about how to begin. 
-                    We provide the structured support you need to start confidently.
+                    Many youths want to learn volleyball but feel unsure about basic techniques and where to start. 
+                    We provide expert volleyball coaching and structured support to get you playing confidently.
                 </p>
                 <div class="features-grid">
                     <div class="feature-card">
@@ -113,8 +113,8 @@
         <!-- Sports Categories Section -->
         <section id="sports" class="section" aria-labelledby="sports-title">
             <div class="container">
-                <h2 id="sports-title" class="section-title">Choose Your Sport</h2>
-                <p class="section-subtitle">Select a sport and start your learning journey</p>
+                <h2 id="sports-title" class="section-title">Volleyball & More Sports</h2>
+                <p class="section-subtitle">Start with volleyball or explore other sports</p>
                 
                 <!-- Search Bar -->
                 <div class="search-container">
@@ -182,6 +182,57 @@
                         <i class="fas fa-trophy" aria-hidden="true"></i>
                         <h3>Achievements</h3>
                         <p>Earn badges and rewards as you progress through levels</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chatbot Section -->
+        <section id="chatbot-section" class="section" aria-labelledby="chatbot-title">
+            <div class="container">
+                <h2 id="chatbot-title" class="section-title">Need Help? Ask Our AI Coach!</h2>
+                <p class="section-subtitle">
+                    Have questions about volleyball techniques, rules, or training? 
+                    Chat with our AI assistant for instant answers and personalized guidance.
+                </p>
+                
+                <div class="chatbot-preview">
+                    <div class="chatbot-demo">
+                        <div class="chatbot-header">
+                            <i class="fas fa-robot"></i>
+                            <span>Volleyball Coach AI</span>
+                            <span class="chatbot-status">Coming Soon</span>
+                        </div>
+                        <div class="chatbot-body">
+                            <div class="chat-message bot-message">
+                                <i class="fas fa-robot"></i>
+                                <p>Hi! I'm your volleyball coaching assistant. Ask me anything about volleyball!</p>
+                            </div>
+                            <div class="chat-message user-message">
+                                <p>How do I improve my serve?</p>
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="chat-message bot-message">
+                                <i class="fas fa-robot"></i>
+                                <p>Great question! To improve your serve, focus on: consistent toss, proper contact point, and follow-through...</p>
+                            </div>
+                        </div>
+                        <div class="chatbot-footer">
+                            <input type="text" placeholder="AI Chatbot coming soon..." disabled>
+                            <button disabled><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="chatbot-features">
+                        <h3>What You Can Ask:</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Volleyball techniques and drills</li>
+                            <li><i class="fas fa-check-circle"></i> Rules and regulations</li>
+                            <li><i class="fas fa-check-circle"></i> Training schedules and tips</li>
+                            <li><i class="fas fa-check-circle"></i> Equipment recommendations</li>
+                            <li><i class="fas fa-check-circle"></i> Common mistakes to avoid</li>
+                            <li><i class="fas fa-check-circle"></i> Position-specific guidance</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -276,6 +327,52 @@
     <!-- Loading Spinner -->
     <div id="loading-spinner" class="spinner-overlay" aria-live="polite" aria-label="Loading">
         <div class="spinner"></div>
+    </div>
+
+    <!-- Floating Chatbot Button -->
+    <button id="chatbot-toggle" class="chatbot-fab" aria-label="Open chatbot" title="Chat with AI Coach (Coming Soon)">
+        <i class="fas fa-comments"></i>
+        <span class="chatbot-badge">Soon</span>
+    </button>
+
+    <!-- Chatbot Window (Hidden by default) -->
+    <div id="chatbot-window" class="chatbot-window" aria-hidden="true">
+        <div class="chatbot-window-header">
+            <div class="chatbot-window-title">
+                <i class="fas fa-robot"></i>
+                <span>Volleyball Coach AI</span>
+            </div>
+            <button id="chatbot-close" class="chatbot-window-close" aria-label="Close chatbot">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-window-body" id="chatbot-messages">
+            <div class="chat-message bot-message">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <p><strong>Volleyball Coach AI</strong></p>
+                    <p>Hello! I'm your AI volleyball coach. This feature is coming soon! In the future, you'll be able to ask me:</p>
+                    <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                        <li>Volleyball techniques</li>
+                        <li>Training tips</li>
+                        <li>Rules & strategies</li>
+                        <li>Equipment advice</li>
+                    </ul>
+                    <p style="margin-top: 0.5rem;">Stay tuned! 🏐</p>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-window-footer">
+            <input 
+                type="text" 
+                id="chatbot-input" 
+                placeholder="Chatbot integration coming soon..." 
+                aria-label="Chat message input"
+                disabled>
+            <button id="chatbot-send" aria-label="Send message" disabled>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
     </div>
 
     <!-- Scripts -->

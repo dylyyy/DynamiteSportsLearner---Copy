@@ -5,6 +5,18 @@
 // Sports Data
 const sportsData = [
     {
+        id: 6,
+        name: 'Volleyball',
+        icon: 'fa-volleyball-ball',
+        difficulty: 'beginner',
+        duration: '5-7 weeks',
+        description: 'Master serving, spiking, and team coordination in this exciting sport.',
+        skills: ['Serve', 'Bump', 'Set', 'Spike', 'Block', 'Team Communication'],
+        equipmentNeeded: ['Volleyball', 'Knee pads', 'Athletic shoes', 'Comfortable athletic wear'],
+        benefits: ['Team coordination', 'Upper body strength', 'Quick reflexes', 'Cardiovascular fitness', 'Strategic thinking'],
+        featured: true
+    },
+    {
         id: 1,
         name: 'Basketball',
         icon: 'fa-basketball-ball',
@@ -60,17 +72,6 @@ const sportsData = [
         benefits: ['Improves reflexes', 'Builds stamina', 'Enhances flexibility']
     },
     {
-        id: 6,
-        name: 'Volleyball',
-        icon: 'fa-volleyball-ball',
-        difficulty: 'intermediate',
-        duration: '5-7 weeks',
-        description: 'Master serving, spiking, and team coordination.',
-        skills: ['Serve', 'Bump', 'Set', 'Spike', 'Block'],
-        equipmentNeeded: ['Volleyball', 'Knee pads', 'Athletic shoes'],
-        benefits: ['Team coordination', 'Upper body strength', 'Quick reflexes']
-    },
-    {
         id: 7,
         name: 'Running',
         icon: 'fa-running',
@@ -117,6 +118,11 @@ const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
 const contactForm = document.getElementById('contact-form');
 const loadingSpinner = document.getElementById('loading-spinner');
+const chatbotToggle = document.getElementById('chatbot-toggle');
+const chatbotWindow = document.getElementById('chatbot-window');
+const chatbotClose = document.getElementById('chatbot-close');
+const chatbotInput = document.getElementById('chatbot-input');
+const chatbotSend = document.getElementById('chatbot-send');
 
 // ============================================
 // Initialize Application
@@ -130,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initProgressTracking();
     initAnimations();
+    initChatbot();
 });
 
 // ============================================
@@ -581,6 +588,104 @@ function getUserProgress() {
 window.toggleSkillCompletion = toggleSkillCompletion;
 window.openSportModal = openSportModal;
 window.closeModal = closeModal;
+
+// ============================================
+// Chatbot Functionality
+// ============================================
+function initChatbot() {
+    if (!chatbotToggle || !chatbotWindow || !chatbotClose) return;
+    
+    // Toggle chatbot window
+    chatbotToggle.addEventListener('click', () => {
+        toggleChatbot();
+    });
+    
+    // Close chatbot
+    chatbotClose.addEventListener('click', () => {
+        closeChatbot();
+    });
+    
+    // Close on ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && chatbotWindow.classList.contains('active')) {
+            closeChatbot();
+        }
+    });
+    
+    // Placeholder for future chatbot input handling
+    if (chatbotInput && chatbotSend) {
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !chatbotInput.disabled) {
+                sendChatMessage();
+            }
+        });
+        
+        chatbotSend.addEventListener('click', () => {
+            if (!chatbotSend.disabled) {
+                sendChatMessage();
+            }
+        });
+    }
+}
+
+function toggleChatbot() {
+    if (chatbotWindow.classList.contains('active')) {
+        closeChatbot();
+    } else {
+        openChatbot();
+    }
+}
+
+function openChatbot() {
+    chatbotWindow.classList.add('active');
+    chatbotWindow.setAttribute('aria-hidden', 'false');
+    
+    // Show info notification about coming soon feature
+    showNotification('AI Chatbot coming soon! This feature will help answer all your volleyball questions. 🏐', 'info');
+}
+
+function closeChatbot() {
+    chatbotWindow.classList.remove('active');
+    chatbotWindow.setAttribute('aria-hidden', 'true');
+}
+
+// Placeholder function for sending chat messages
+// This will be replaced with actual AI integration in the future
+function sendChatMessage() {
+    const message = chatbotInput.value.trim();
+    if (!message) return;
+    
+    // TODO: Integrate with AI chatbot API
+    // For now, this is a placeholder
+    console.log('Message to be sent to AI:', message);
+    
+    // Clear input
+    chatbotInput.value = '';
+    
+    // Show coming soon notification
+    showNotification('Chatbot integration coming soon!', 'info');
+}
+
+// Function to add a message to the chat window
+// This will be used when the AI chatbot is integrated
+function addChatMessage(message, isBot = true) {
+    const messagesContainer = document.getElementById('chatbot-messages');
+    if (!messagesContainer) return;
+    
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `chat-message ${isBot ? 'bot-message' : 'user-message'}`;
+    
+    messageDiv.innerHTML = `
+        <i class="fas ${isBot ? 'fa-robot' : 'fa-user'}"></i>
+        <div>
+            ${isBot ? '<p><strong>Volleyball Coach AI</strong></p>' : ''}
+            <p>${message}</p>
+        </div>
+    `;
+    
+    messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
 
 // ============================================
 // Console Welcome Message
