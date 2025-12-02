@@ -15,7 +15,7 @@ Thumbs.db
 Desktop.ini
 
 # IDE and Editor Files
-.vscode/
+# .vscode/ - keeping this for Live Server config
 .idea/
 *.swp
 *.swo
