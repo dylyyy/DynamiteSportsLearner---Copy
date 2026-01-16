@@ -2,12 +2,12 @@
    CSS Variables - Color Palette & Design System
    ============================================ */
 :root {
-    /* Brand Colors - Volleyball Theme */
-    --color-primary: #FF6B35;        /* Dynamic Orange - Energy & Action */
+    /* Brand Colors - Sports Theme */
+    --color-primary: #15663f;        /* Dark Green - Growth & Nature */
     --color-secondary: #004E89;      /* Deep Blue - Trust & Professionalism */
     --color-accent: #F7B801;         /* Vibrant Yellow - Optimism */
     --color-success: #1A936F;        /* Sport Green - Achievement */
-    --color-volleyball: #FFD700;     /* Gold - Volleyball highlight */
+    --color-volleyball: #15663f;     /* Dark Green - highlight */
     
     /* Neutral Colors */
     --color-background: #F8F9FA;     /* Light Gray */
@@ -15,10 +15,10 @@
     --color-text: #212529;           /* Dark Gray */
     --color-text-light: #6C757D;
     
-    /* Gradients - Enhanced for Volleyball */
-    --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-    --gradient-secondary: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
-    --gradient-volleyball: linear-gradient(135deg, #FF6B35, #FFD700);
+    /* Gradients - Enhanced for Sports */
+    --gradient-primary: linear-gradient(135deg, #0d3d24, #2d9d6e);
+    --gradient-secondary: linear-gradient(135deg, #051416, var(--color-primary));
+    --gradient-volleyball: linear-gradient(135deg, #0d3d24, #2d9d6e);
     
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -118,7 +118,7 @@ ul {
    Utility Classes
    ============================================ */
 .container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
 }
@@ -407,7 +407,8 @@ ul {
    ============================================ */
 .sports-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 1fr;
     gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
 }
@@ -419,35 +420,14 @@ ul {
     box-shadow: var(--shadow-md);
     transition: all var(--transition-base);
     cursor: pointer;
-}
-
-/* Featured volleyball card */
-.sport-card[data-sport-id="6"] {
-    border: 3px solid var(--color-volleyball);
-    position: relative;
-}
-
-.sport-card[data-sport-id="6"]::before {
-    content: '⭐ FEATURED';
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: var(--gradient-volleyball);
-    color: var(--color-text);
-    padding: 0.25rem 0.75rem;
-    border-radius: var(--radius-xl);
-    font-size: 0.75rem;
-    font-weight: bold;
-    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
 
 .sport-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
-}
-
-.sport-card[data-sport-id="6"]:hover {
-    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
 }
 
 .sport-card-header {
@@ -469,6 +449,9 @@ ul {
 
 .sport-card-body {
     padding: var(--spacing-md);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .sport-card-description {
@@ -957,6 +940,22 @@ ul {
     font-weight: bold;
 }
 
+/* n8n Chat Widget - Windowed Example (Centered) */
+.n8n-chat {
+    position: relative;
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+.n8n-chat-toggle-button {
+    display: none;
+}
+
+.n8n-chat-window {
+    position: relative !important;
+    margin: 0 auto;
+}
+
 /* Chatbot Preview Section */
 .chatbot-preview {
     display: grid;
@@ -1104,130 +1103,43 @@ ul {
     font-size: 1.2rem;
 }
 
-/* Chatbot Window (Floating) */
-.chatbot-window {
-    position: fixed;
-    bottom: 6rem;
-    right: 2rem;
-    width: 380px;
-    height: 500px;
+/* Chatbot Window - Full Screen Always Visible */
+.chatbot-window-full {
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+    margin: 2rem auto;
     background: var(--color-white);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
-    display: none;
-    flex-direction: column;
-    z-index: 1600;
-    animation: slideInUp 0.3s ease;
-}
-
-.chatbot-window.active {
-    display: flex;
-}
-
-@keyframes slideInUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.chatbot-window-header {
-    background: var(--gradient-secondary);
-    color: var(--color-white);
-    padding: var(--spacing-sm);
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.chatbot-window-title {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    font-weight: 600;
-}
-
-.chatbot-window-close {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: var(--color-white);
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--transition-fast);
-}
-
-.chatbot-window-close:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-.chatbot-window-body {
-    flex: 1;
-    padding: var(--spacing-md);
-    overflow-y: auto;
-    background: var(--color-background);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    z-index: 100;
+    overflow: hidden;
 }
 
-.chatbot-window-body .chat-message {
-    max-width: 85%;
+.chatbot-window-full #n8n-chat-widget {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
-.chatbot-window-footer {
-    display: flex;
-    padding: var(--spacing-sm);
-    background: var(--color-white);
-    border-top: 1px solid var(--color-background);
-    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+/* Responsive Full-Window Chatbot */
+@media (max-width: 768px) {
+    .chatbot-window-full {
+        max-width: 100%;
+        height: 500px;
+        margin: 1rem;
+    }
 }
 
-.chatbot-window-footer input {
-    flex: 1;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border: 1px solid #DDD;
-    border-radius: var(--radius-md);
-    font-family: var(--font-primary);
-}
-
-.chatbot-window-footer button {
-    background: var(--color-primary);
-    color: var(--color-white);
-    border: none;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    margin-left: var(--spacing-xs);
-    border-radius: var(--radius-md);
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-/* Responsive Chatbot */
 @media (max-width: 480px) {
-    .chatbot-window {
-        width: calc(100vw - 2rem);
-        right: 1rem;
-        bottom: 5rem;
-        height: 450px;
+    .chatbot-window-full {
+        max-width: 100%;
+        height: 400px;
+        margin: 0.5rem;
     }
-    
-    .chatbot-fab {
-        bottom: 1rem;
-        right: 1rem;
-    }
-    
-    .chatbot-preview {
-        grid-template-columns: 1fr;
-    }
+}
 }
 
 /* ============================================

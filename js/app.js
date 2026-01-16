@@ -14,7 +14,7 @@ const sportsData = [
         skills: ['Serve', 'Bump', 'Set', 'Spike', 'Block', 'Team Communication'],
         equipmentNeeded: ['Volleyball', 'Knee pads', 'Athletic shoes', 'Comfortable athletic wear'],
         benefits: ['Team coordination', 'Upper body strength', 'Quick reflexes', 'Cardiovascular fitness', 'Strategic thinking'],
-        featured: true
+        learnLink: 'https://dylyyy.github.io/DynamiteSportsLearner/'
     },
     {
         id: 1,
@@ -25,84 +25,44 @@ const sportsData = [
         description: 'Learn dribbling, shooting, and team play fundamentals.',
         skills: ['Dribbling', 'Shooting', 'Passing', 'Defense', 'Teamwork'],
         equipmentNeeded: ['Basketball', 'Athletic shoes', 'Comfortable clothing'],
-        benefits: ['Improves coordination', 'Builds teamwork', 'Enhances cardiovascular health']
-    },
-    {
-        id: 2,
-        name: 'Soccer',
-        icon: 'fa-futbol',
-        difficulty: 'beginner',
-        duration: '4-6 weeks',
-        description: 'Master ball control, passing, and strategic gameplay.',
-        skills: ['Ball control', 'Passing', 'Shooting', 'Defending', 'Positioning'],
-        equipmentNeeded: ['Soccer ball', 'Cleats', 'Shin guards'],
-        benefits: ['Improves endurance', 'Develops strategy', 'Builds leg strength']
-    },
-    {
-        id: 3,
-        name: 'Swimming',
-        icon: 'fa-swimmer',
-        difficulty: 'beginner',
-        duration: '6-8 weeks',
-        description: 'Learn proper techniques for various swimming strokes.',
-        skills: ['Freestyle', 'Backstroke', 'Breaststroke', 'Breathing technique', 'Water safety'],
-        equipmentNeeded: ['Swimsuit', 'Goggles', 'Swim cap'],
-        benefits: ['Full-body workout', 'Low impact', 'Life-saving skill']
+        benefits: ['Improves coordination', 'Builds teamwork', 'Enhances cardiovascular health'],
+        learnLink: 'https://23026902.github.io/c240-chatbot/'
     },
     {
         id: 4,
-        name: 'Tennis',
+        name: 'Table Tennis',
         icon: 'fa-table-tennis',
         difficulty: 'intermediate',
         duration: '6-8 weeks',
         description: 'Develop serve, forehand, backhand, and court strategy.',
         skills: ['Serve', 'Forehand', 'Backhand', 'Volley', 'Footwork'],
-        equipmentNeeded: ['Tennis racket', 'Tennis balls', 'Court shoes'],
-        benefits: ['Improves agility', 'Strategic thinking', 'Hand-eye coordination']
+        equipmentNeeded: ['Ping pong paddle', 'Ping pong balls', 'Table tennis table'],
+        benefits: ['Improves agility', 'Strategic thinking', 'Hand-eye coordination'],
+        learnLink: 'https://bernicepoh.github.io/FA-Table-Tennis/'
+    },
+    {
+        id: 10,
+        name: 'Bowling',
+        icon: 'fa-bowling-ball',
+        difficulty: 'beginner',
+        duration: '3-4 weeks',
+        description: 'Learn proper bowling technique, grip, and lane strategy.',
+        skills: ['Proper grip', 'Approach', 'Release', 'Pin targeting', 'Spare techniques'],
+        equipmentNeeded: ['Bowling shoes', 'Bowling ball', 'Bowling glove (optional)'],
+        benefits: ['Improves coordination', 'Hand-eye coordination', 'Precision and focus'],
+        learnLink: 'https://23000518-nurqistina.github.io/FA-Bowling-Coach/'
     },
     {
         id: 5,
         name: 'Badminton',
-        icon: 'fa-shuttlecock',
+        icon: 'fa-solid fa-feather',
         difficulty: 'beginner',
         duration: '3-4 weeks',
         description: 'Learn serves, smashes, and court positioning.',
         skills: ['Serve', 'Clear', 'Drop shot', 'Smash', 'Footwork'],
         equipmentNeeded: ['Badminton racket', 'Shuttlecocks', 'Court shoes'],
-        benefits: ['Improves reflexes', 'Builds stamina', 'Enhances flexibility']
-    },
-    {
-        id: 7,
-        name: 'Running',
-        icon: 'fa-running',
-        difficulty: 'beginner',
-        duration: '2-4 weeks',
-        description: 'Build endurance and proper running form.',
-        skills: ['Proper form', 'Breathing', 'Pacing', 'Stretching', 'Endurance building'],
-        equipmentNeeded: ['Running shoes', 'Comfortable clothing', 'Water bottle'],
-        benefits: ['Cardiovascular health', 'Weight management', 'Mental clarity']
-    },
-    {
-        id: 8,
-        name: 'Cycling',
-        icon: 'fa-biking',
-        difficulty: 'beginner',
-        duration: '2-3 weeks',
-        description: 'Learn bike handling, safety, and endurance techniques.',
-        skills: ['Balance', 'Gear shifting', 'Road safety', 'Hill climbing', 'Braking'],
-        equipmentNeeded: ['Bicycle', 'Helmet', 'Cycling gloves'],
-        benefits: ['Low impact cardio', 'Leg strength', 'Environmental friendly']
-    },
-    {
-        id: 9,
-        name: 'Martial Arts',
-        icon: 'fa-fist-raised',
-        difficulty: 'advanced',
-        duration: '12+ weeks',
-        description: 'Discipline, self-defense, and physical fitness.',
-        skills: ['Stances', 'Strikes', 'Blocks', 'Forms', 'Self-defense'],
-        equipmentNeeded: ['Gi/uniform', 'Belt', 'Protective gear'],
-        benefits: ['Self-discipline', 'Confidence', 'Self-defense skills']
+        benefits: ['Improves reflexes', 'Builds stamina', 'Enhances flexibility'],
+        learnLink: 'https://irdinnaaaaaaaaa.github.io/final/'
     }
 ];
 
@@ -304,12 +264,14 @@ function openSportModal(sport) {
             </div>
             
             <div style="text-align: center; margin-top: 2rem;">
-                <button 
-                    class="btn ${isCompleted ? 'btn-secondary' : 'btn-primary'}" 
-                    onclick="toggleSkillCompletion(${sport.id})"
-                    style="margin-right: 1rem;">
-                    ${isCompleted ? '<i class="fas fa-check"></i> Completed' : '<i class="fas fa-play"></i> Start Learning'}
-                </button>
+                <a 
+                    href="${sport.learnLink}" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary" 
+                    style="display: inline-block; margin-right: 1rem; text-decoration: none;">
+                    <i class="fas fa-external-link-alt"></i> Learn More
+                </a>
                 <p style="margin-top: 1rem; color: var(--color-text-light); font-size: 0.875rem;">
                     <i class="far fa-clock"></i> Estimated duration: ${sport.duration}
                 </p>
